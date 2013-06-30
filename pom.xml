@@ -310,4 +310,51 @@
 		</pluginManagement>
 	</build>
 
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>dev</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<id>delete-bi-webapp</id>
+								<phase>clean</phase>
+								<configuration>
+									<target>
+										<delete dir="${biserver.home}/biserver-ce/tomcat/webapps/bi" />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>copy-bi-webapp</id>
+								<phase>package</phase>
+								<configuration>
+									<target>
+										<copy todir="${biserver.home}/biserver-ce/tomcat/webapps/bi">
+											<fileset dir="${project.build.directory}/${project.name}-${project.version}" />
+										</copy>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
