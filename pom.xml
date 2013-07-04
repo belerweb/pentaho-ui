@@ -19,6 +19,7 @@
 		<dependency.slf4j.version>1.7.2</dependency.slf4j.version>
 		<dependency.cglib.version>2.2.2</dependency.cglib.version>
 		<dependency.jackson.version>1.9.12</dependency.jackson.version>
+		<dependency.jackson-xml.version>2.2.2</dependency.jackson-xml.version>
 		<dependency.dbcp.version>1.4</dependency.dbcp.version>
 		<dependency.dbutils.version>1.5</dependency.dbutils.version>
 		<dependency.commons-lang.version>2.6</dependency.commons-lang.version>
@@ -31,6 +32,7 @@
 		<dependency.qqconnect.version>1.0.1</dependency.qqconnect.version>
 		<dependency.weibo4j.version>2.1.1-beta2-1</dependency.weibo4j.version>
 		<dependency.junit.version>4.11</dependency.junit.version>
+		<dependency.jetty.version>8.1.11.v20130520</dependency.jetty.version>
 		<dependency.servlet-api.version> 2.5</dependency.servlet-api.version>
 	</properties>
 
@@ -155,6 +157,11 @@
 			<version>${dependency.jackson.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>${dependency.jackson-xml.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>${dependency.dbcp.version}</version>
@@ -276,6 +283,11 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${dependency.jetty.version}</version>
 			</plugin>
 		</plugins>
 		<pluginManagement>

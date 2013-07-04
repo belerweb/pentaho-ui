@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.belerweb.pentaho.ui.bean">
+	<class name="User" table="USERS">
+		<id name="username" column="USERNAME" length="50">
+			<generator class="assigned" />
+		</id>
+		<property name="password" column="PASSWORD" length="50" />
+		<property name="description" column="DESCRIPTION" length="100" />
+		<property name="enabled" column="ENABLED" />
+	</class>
+</hibernate-mapping>
