@@ -8,15 +8,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<link href="${ContextPath}/assets/css/bootstrap.css" rel="stylesheet" />
-		<link rel="stylesheet" href="${ContextPath}/assets/css/font-awesome.css" />
-		<link rel="stylesheet" href="${ContextPath}/assets/css/OpenSans.css" />
-		<link rel="stylesheet" href="${ContextPath}/assets/css/ace.css" />
-		<link rel="stylesheet" href="${ContextPath}/assets/css/ace-skins.css" />
+		<link href="${ContextPath}/assets/css/bootstrap-editable.css" rel="stylesheet" />
+		<link href="${ContextPath}/assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="${ContextPath}/assets/css/OpenSans.css" rel="stylesheet" />
+		<link href="${ContextPath}/assets/css/ace.css" rel="stylesheet" />
+		<link href="${ContextPath}/assets/css/ace-skins.css" rel="stylesheet" />
 		<!--[if IE 7]>
-		  <link rel="stylesheet" href="${ContextPath}/assets/css/font-awesome-ie7.css" />
+		  <link href="${ContextPath}/assets/css/font-awesome-ie7.css" rel="stylesheet" />
 		<![endif]-->
 		<!--[if lt IE 9]>
-		  <link rel="stylesheet" href="${ContextPath}/assets/css/ace-ie.css" />
+		  <link href="${ContextPath}/assets/css/ace-ie.css" rel="stylesheet" />
 		<![endif]-->
 	</head>
 
@@ -52,6 +53,17 @@
 
 			<div id="sidebar" class="fixed">
 				<ul class="nav nav-list">
+					<li>
+						<a class="dropdown-toggle" href="#">
+							<i class="icon-list-alt"></i>
+							<span>权限管理</span>
+							<b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li><a href="#" data-url="${ContextPath}/user/list.do"><i class="icon-double-angle-right"></i> 用户管理</a></li>
+							<li><a href="#" data-url="${ContextPath}/authority/list.do"><i class="icon-double-angle-right"></i> 角色管理</a></li>
+						</ul>
+					</li>
 				</ul><!--/.nav-list-->
 
 				<div id="sidebar-collapse">
@@ -67,6 +79,7 @@
 
 		<script src="${ContextPath}/assets/js/jquery.js"></script>
 		<script src="${ContextPath}/assets/js/bootstrap.js"></script>
+		<script src="${ContextPath}/assets/js/bootstrap-editable.js"></script>
 		<script src="${ContextPath}/assets/js/jquery-ui-1.10.3.custom.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.ui.touch-punch.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.slimscroll.js"></script>

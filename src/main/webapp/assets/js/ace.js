@@ -1,3 +1,4 @@
+$.fn.editable.defaults.emptytext = '未设置';
 jQuery(function() {
 	add_browser_detection(jQuery);
 	general_things();

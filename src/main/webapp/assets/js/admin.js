@@ -32,7 +32,7 @@ $(function() {
 					$(ul).slideToggle(200).parent().toggleClass("open");
 					return false;
 				} else {
-
+					$('#main-content').load(target.attr('data-url'));
 				}
 			}
 		});

@@ -1,8 +1,11 @@
 package com.belerweb.pentaho.ui.bean;
 
+import java.io.Serializable;
 
-public class GrantedAuthority {
 
+public class GrantedAuthority implements Serializable {
+
+  private static final long serialVersionUID = 5021372443484994866L;
   private String username;
   private String authority;
 

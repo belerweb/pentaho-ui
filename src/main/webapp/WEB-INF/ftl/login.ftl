@@ -96,8 +96,6 @@
 						locale: 'zh_CN'
 					},
 					error: function() {
-						//event.preventDefault();
-						//event.stopPropagation();
 						$('button[type=submit]').button('reset');
 					}
 				});

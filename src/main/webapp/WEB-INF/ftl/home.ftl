@@ -64,8 +64,6 @@
 			</div>
 
 			<div id="main-content" class="clearfix">
-				<div class="clearfix" id="page-content">
-				</div>
 			</div><!--/#main-content-->
 		</div><!--/.fluid-container#main-container-->
 
