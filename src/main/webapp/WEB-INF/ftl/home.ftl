@@ -1,8 +1,9 @@
 <#assign ContextPath=springMacroRequestContext.getContextPath() />
 <!DOCTYPE html>
-<html>
+<htm>
 	<head>
 		<meta charset="utf-8" />
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 		<title>BI Server</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

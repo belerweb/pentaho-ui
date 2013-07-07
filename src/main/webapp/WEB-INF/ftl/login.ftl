@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 		<title>登录</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,7 +43,7 @@
 													输入用户名和密码登录系统
 												</h4>
 												<div class="space-6"></div>
-												<form action="/session.do" method="post">
+												<form action="${ContextPath}/session.do" method="post">
 													<fieldset>
 														<label>
 															<span class="block input-icon input-icon-right">
