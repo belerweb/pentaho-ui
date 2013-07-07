@@ -24,11 +24,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<a href="#" class="brand">
-						<small>
-							BI Server
-						</small>
-					</a><!--/.brand-->
+					<a href="#" class="brand"><small>BI Server 管理平台</small></a><!--/.brand-->
 
 					<ul class="nav ace-nav pull-right">
 						<li class="light-blue user-profile">
@@ -39,7 +35,7 @@
 							</a>
 
 							<ul class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer" id="user_menu">
-								<li><a href="${ContextPath}/admin.do"><i class="icon-wrench"></i> 管理平台</a></li>
+								<li><a href="${ContextPath}/home.do"><i class="icon-wrench"></i> BI 平台</a></li>
 								<li class="divider"></li>
 								<li><a href="${ContextPath}/logout.do"><i class="icon-off"></i> 退出</a></li>
 							</ul>
@@ -76,6 +72,6 @@
 		<script src="${ContextPath}/assets/js/jquery.slimscroll.js"></script>
 		<script src="${ContextPath}/assets/js/ace-elements.js"></script>
 		<script src="${ContextPath}/assets/js/ace.js"></script>
-		<script src="${ContextPath}/assets/js/home.js"></script>
+		<script src="${ContextPath}/assets/js/admin.js"></script>
 	</body>
 </html>

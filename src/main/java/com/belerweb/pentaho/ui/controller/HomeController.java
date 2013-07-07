@@ -12,4 +12,7 @@ public class HomeController {
   @RequestMapping("/home.do")
   public void home() {}
 
+  @RequestMapping("/admin.do")
+  public void admin() {}
+
 }
