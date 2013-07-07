@@ -1,44 +1,9 @@
 jQuery(function() {
-	handle_side_menu();
 	add_browser_detection(jQuery);
 	general_things();
 	widget_boxes();
 	$(document).off("click.dropdown-menu")
 });
-function handle_side_menu() {
-	$("#menu-toggler").on("click", function() {
-		$("#sidebar").toggleClass("display");
-		$(this).toggleClass("display");
-		return false
-	});
-	var a = false;
-	$("#sidebar-collapse").on("click", function() {
-		$("#sidebar").toggleClass("menu-min");
-		$(this.firstChild).toggleClass("icon-double-angle-right");
-		a = $("#sidebar").hasClass("menu-min");
-		if (a) {
-			$(".open > .submenu").removeClass("open")
-		}
-	});
-	$(".nav-list").on("click", function(d) {
-		if (a) {
-			return
-		}
-		var c = $(d.target).closest(".dropdown-toggle");
-		if (c && c.length > 0) {
-			var b = c.next().get(0);
-			if (!$(b).is(":visible")) {
-				$(".open > .submenu").each(function() {
-					if (this != b && !$(this.parentNode).hasClass("active")) {
-						$(this).slideUp(200).parent().removeClass("open")
-					}
-				})
-			}
-			$(b).slideToggle(200).parent().toggleClass("open");
-			return false
-		}
-	})
-}
 function general_things() {
 	$('.ace-nav [class*="icon-animated-"]').closest("a").on("click",
 			function() {

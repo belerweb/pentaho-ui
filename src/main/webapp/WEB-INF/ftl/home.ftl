@@ -58,11 +58,6 @@
 			</a>
 
 			<div id="sidebar" class="fixed">
-				<div id="sidebar-shortcuts">
-					<div id="sidebar-shortcuts-large">
-					</div>
-				</div><!--#sidebar-shortcuts-->
-
 				<ul class="nav nav-list">
 				</ul><!--/.nav-list-->
 
@@ -72,7 +67,8 @@
 			</div>
 
 			<div id="main-content" class="clearfix">
-
+				<div class="clearfix" id="page-content">
+				</div>
 			</div><!--/#main-content-->
 		</div><!--/.fluid-container#main-container-->
 
