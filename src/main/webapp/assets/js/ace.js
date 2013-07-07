@@ -1,6 +1,5 @@
 jQuery(function() {
 	handle_side_menu();
-	enable_search_ahead();
 	add_browser_detection(jQuery);
 	general_things();
 	widget_boxes();

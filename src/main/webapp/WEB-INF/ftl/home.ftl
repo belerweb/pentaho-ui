@@ -82,5 +82,6 @@
 		<script src="${ContextPath}/assets/js/jquery.slimscroll.js"></script>
 		<script src="${ContextPath}/assets/js/ace-elements.js"></script>
 		<script src="${ContextPath}/assets/js/ace.js"></script>
+		<script src="${ContextPath}/assets/js/home.js"></script>
 	</body>
 </html>
