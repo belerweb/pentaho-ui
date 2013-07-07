@@ -40,28 +40,6 @@ function handle_side_menu() {
 		}
 	})
 }
-function enable_search_ahead() {
-	$("#nav-search-input").typeahead(
-			{
-				source : [ "Alabama", "Alaska", "Arizona", "Arkansas",
-						"California", "Colorado", "Connecticut", "Delaware",
-						"Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
-						"Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
-						"Maine", "Maryland", "Massachusetts", "Michigan",
-						"Minnesota", "Mississippi", "Missouri", "Montana",
-						"Nebraska", "Nevada", "New Hampshire", "New Jersey",
-						"New Mexico", "New York", "North Dakota",
-						"North Carolina", "Ohio", "Oklahoma", "Oregon",
-						"Pennsylvania", "Rhode Island", "South Carolina",
-						"South Dakota", "Tennessee", "Texas", "Utah",
-						"Vermont", "Virginia", "Washington", "West Virginia",
-						"Wisconsin", "Wyoming" ],
-				updater : function(a) {
-					$("#nav-search-input").focus();
-					return a
-				}
-			})
-}
 function general_things() {
 	$('.ace-nav [class*="icon-animated-"]').closest("a").on("click",
 			function() {
@@ -70,13 +48,6 @@ function general_things() {
 				b.removeClass(a[0]);
 				$(this).off("click")
 			});
-	$("#btn-scroll-up").on("click", function() {
-		var a = Math.max(100, parseInt($("html").scrollTop() / 3));
-		$("html,body").animate({
-			scrollTop : 0
-		}, a);
-		return false
-	});
 }
 function widget_boxes() {
 	$(".widget-toolbar > a[data-action]")

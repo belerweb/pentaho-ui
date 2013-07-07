@@ -75,10 +75,6 @@
 			</div><!--/#main-content-->
 		</div><!--/.fluid-container#main-container-->
 
-		<a href="#" id="btn-scroll-up" class="btn btn-small btn-inverse">
-			<i class="icon-double-angle-up icon-only bigger-110"></i>
-		</a>
-
 		<script src="${ContextPath}/assets/js/jquery.js"></script>
 		<script src="${ContextPath}/assets/js/bootstrap.js"></script>
 		<script src="${ContextPath}/assets/js/jquery-ui-1.10.3.custom.js"></script>
