@@ -1,8 +1,7 @@
 package com.belerweb.pentaho.ui.bean;
 
-import java.util.Collection;
+import java.util.List;
 
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class User implements UserDetails {
@@ -14,9 +13,11 @@ public class User implements UserDetails {
   private String description;
   private boolean enabled;
 
+  private List<Authority> authorities;
+
   @Override
-  public Collection<? extends GrantedAuthority> getAuthorities() {
-    return null;
+  public List<Authority> getAuthorities() {
+    return authorities;
   }
 
   @Override
@@ -67,6 +68,10 @@ public class User implements UserDetails {
 
   public void setEnabled(boolean enabled) {
     this.enabled = enabled;
+  }
+
+  public void setAuthorities(List<Authority> authorities) {
+    this.authorities = authorities;
   }
 
 }

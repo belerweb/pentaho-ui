@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.belerweb.pentaho.ui.bean">
+	<class name="Granted_Authority" table="GRANTED_AUTHORITIES">
+		<composite-id>
+			<key-property name="username" column="USERNAME" length="50" />
+			<key-property name="authority" column="AUTHORITY" length="50" />
+		</composite-id>
+	</class>
+</hibernate-mapping>

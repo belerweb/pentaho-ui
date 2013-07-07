@@ -14,7 +14,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 
 	<beans:bean id="Base64PasswordEncoder" class="com.belerweb.pentaho.ui.component.Base64PasswordEncoder" />
 	<authentication-manager>
-		<authentication-provider user-service-ref="userService">
+		<authentication-provider user-service-ref="authorityService">
 			<password-encoder ref="Base64PasswordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
