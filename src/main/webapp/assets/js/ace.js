@@ -70,32 +70,6 @@ function general_things() {
 				b.removeClass(a[0]);
 				$(this).off("click")
 			});
-	$("#ace-settings-btn").on("click", function() {
-		$(this).toggleClass("open");
-		$("#ace-settings-box").toggleClass("open")
-	});
-	$("#ace-settings-header").removeAttr("checked").on("click", function() {
-		if (this.checked) {
-			$(".navbar").addClass("navbar-fixed-top");
-			$(document.body).addClass("navbar-fixed")
-		} else {
-			$(".navbar").removeClass("navbar-fixed-top");
-			$(document.body).removeClass("navbar-fixed");
-			if ($("#ace-settings-sidebar").get(0).checked) {
-				$("#ace-settings-sidebar").click()
-			}
-		}
-	});
-	$("#ace-settings-sidebar").removeAttr("checked").on("click", function() {
-		if (this.checked) {
-			$("#sidebar").addClass("fixed");
-			if (!$("#ace-settings-header").get(0).checked) {
-				$("#ace-settings-header").click()
-			}
-		} else {
-			$("#sidebar").removeClass("fixed")
-		}
-	});
 	$("#btn-scroll-up").on("click", function() {
 		var a = Math.max(100, parseInt($("html").scrollTop() / 3));
 		$("html,body").animate({
@@ -103,43 +77,6 @@ function general_things() {
 		}, a);
 		return false
 	});
-	$("#skin-colorpicker").ace_colorpicker().on(
-			"change",
-			function() {
-				var b = $(this).find("option:selected").data("class");
-				var a = $(document.body);
-				a.attr("class", a.hasClass("navbar-fixed") ? "navbar-fixed"
-						: "");
-				if (b != "default") {
-					a.addClass(b)
-				}
-				if (b == "skin-1") {
-					$(".ace-nav > li.grey").addClass("dark")
-				} else {
-					$(".ace-nav > li.grey").removeClass("dark")
-				}
-				if (b == "skin-2") {
-					$(".ace-nav > li").addClass("no-border margin-1");
-					$(".ace-nav > li:not(:last-child)").addClass("light-pink")
-							.find('> a > [class*="icon-"]').addClass("pink")
-							.end().eq(0).find(".badge").addClass(
-									"badge-warning")
-				} else {
-					$(".ace-nav > li").removeClass("no-border").removeClass(
-							"margin-1");
-					$(".ace-nav > li:not(:last-child)").removeClass(
-							"light-pink").find('> a > [class*="icon-"]')
-							.removeClass("pink").end().eq(0).find(".badge")
-							.removeClass("badge-warning")
-				}
-				if (b == "skin-3") {
-					$(".ace-nav > li.grey").addClass("red").find(".badge")
-							.addClass("badge-yellow")
-				} else {
-					$(".ace-nav > li.grey").removeClass("red").find(".badge")
-							.removeClass("badge-yellow")
-				}
-			})
 }
 function widget_boxes() {
 	$(".widget-toolbar > a[data-action]")
