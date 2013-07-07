@@ -39,7 +39,7 @@
 
 							<ul class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer" id="user_menu">
 								<li>
-									<a href="#">
+									<a href="${ContextPath}/logout.do">
 										<i class="icon-off"></i>
 										退出
 									</a>

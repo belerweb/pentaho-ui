@@ -62,7 +62,7 @@
 																<!-- input type="checkbox" />
 																<span class="lbl"> 记住我</span -->
 															</label>
-															<button type="submit" class="span4 btn btn-small btn-primary">
+															<button type="submit" class="span4 btn btn-small btn-primary" data-loading-text="登录中...">
 																<i class="icon-key"></i>
 																登录
 															</button>
@@ -79,5 +79,29 @@
 				</div><!--/row-->
 			</div>
 		</div><!--/.fluid-container-->
+
+		<script src="${ContextPath}/assets/js/jquery.js"></script>
+		<script src="${ContextPath}/assets/js/bootstrap.js"></script>
+		<script type="text/javascript">
+			$('form').on('submit', function(event) {
+				$('button[type=submit]').button('loading')
+				$.ajax({
+					async: false,
+					type: 'POST',
+					url: '/pentaho/j_spring_security_check',
+					data: {
+						j_username: $('input[name=j_username]').val(),
+						j_password: $('input[name=j_password]').val(),
+						locale: 'zh_CN'
+					},
+					error: function() {
+						event.preventDefault();
+						event.stopPropagation();
+						$('button[type=submit]').button('reset');
+					}
+				});
+			});
+		</script>
+
 	</body>
 </html>
