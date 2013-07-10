@@ -46,6 +46,27 @@ public class AuthorityDao {
     query.executeUpdate();
   }
 
+  public int deleteUser(String username) {
+    String hql = "DELETE User WHERE username = ?";
+    Query query = sessionFactory.getCurrentSession().createQuery(hql);
+    query.setParameter(0, username);
+    return query.executeUpdate();
+  }
+
+  public int deleteAuthority(String authority) {
+    String hql = "DELETE Authority WHERE authority = ?";
+    Query query = sessionFactory.getCurrentSession().createQuery(hql);
+    query.setParameter(0, authority);
+    return query.executeUpdate();
+  }
+
+  public int deleteGrantedAuthorityBy(String name, String value) {
+    String hql = "DELETE GrantedAuthority WHERE " + name + " = ?";
+    Query query = sessionFactory.getCurrentSession().createQuery(hql);
+    query.setParameter(0, value);
+    return query.executeUpdate();
+  }
+
   public List<User> listUser() {
     return sessionFactory.getCurrentSession().createCriteria(User.class).list();
   }

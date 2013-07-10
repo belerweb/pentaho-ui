@@ -37,7 +37,19 @@ public class AuthorityService {
 
   @Transactional
   public void updateAuthority(String authority, String prop, Object value) {
-    authorityDao.updateAuthority(authority, prop, value);;
+    authorityDao.updateAuthority(authority, prop, value);
+  }
+
+  @Transactional
+  public void deleteUser(String username) {
+    authorityDao.deleteGrantedAuthorityBy("username", username);
+    authorityDao.deleteUser(username);
+  }
+
+  @Transactional
+  public void deleteAuthority(String authority) {
+    authorityDao.deleteGrantedAuthorityBy("authority", authority);
+    authorityDao.deleteAuthority(authority);
   }
 
   public List<User> getUserList() {

@@ -47,6 +47,18 @@ $('#page-content a[data-name=enabled]').editable({
 	]
 });
 $('#page-content button.delete').on('click', function() {
-	// TODO
+	var username = $(this).attr('data-username');
+	var el = $(this).closest('tr');
+	bootbox.confirm('确认删除[' + username + ']？', '取消', '确定', function(confirm) {
+		if (confirm) {
+			$.post('${ContextPath}/user/delete.do', {
+				username: username
+			}).done(function() {
+				el.remove();
+			}).fail(function(xhr) {
+				bootbox.alert(xhr.responseText, '确定');
+			});
+		}
+	});
 });
 </script>

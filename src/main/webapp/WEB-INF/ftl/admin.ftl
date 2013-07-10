@@ -83,6 +83,7 @@
 		<script src="${ContextPath}/assets/js/jquery-ui-1.10.3.custom.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.ui.touch-punch.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.slimscroll.js"></script>
+		<script src="${ContextPath}/assets/js/bootbox.js"></script>
 		<script src="${ContextPath}/assets/js/ace-elements.js"></script>
 		<script src="${ContextPath}/assets/js/ace.js"></script>
 		<script src="${ContextPath}/assets/js/admin.js"></script>

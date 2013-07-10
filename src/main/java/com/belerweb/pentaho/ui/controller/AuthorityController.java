@@ -22,9 +22,6 @@ public class AuthorityController extends ControllerHelper {
     model.addAttribute("users", authorityService.getUserList());
   }
 
-  @RequestMapping("/authority/list.do")
-  public void authorities() {}
-
   @RequestMapping(method = RequestMethod.POST, value = "/user/add.do")
   public void addUser(@RequestParam String username) {
     authorityService.addUser(username);
@@ -56,10 +53,22 @@ public class AuthorityController extends ControllerHelper {
     return illegal();
   }
 
+  @RequestMapping(method = RequestMethod.POST, value = "/user/delete.do")
+  public ResponseEntity<Object> updateUser(@RequestParam String username) {
+    if ("admin".equals(username)) {
+      return error("不能删除admin帐户");
+    }
+    // TODO 不能删除自己
+    authorityService.deleteUser(username);
+    return ok();
+  }
+
+  @RequestMapping("/authority/list.do")
+  public void authorities() {}
+
   @RequestMapping(method = RequestMethod.POST, value = "/authority/add.do")
   public void addAuthority(@RequestParam String authority) {
     authorityService.addAuthority(authority);;
   }
-
 
 }
