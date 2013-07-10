@@ -54,7 +54,7 @@ public class AuthorityController extends ControllerHelper {
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/user/delete.do")
-  public ResponseEntity<Object> updateUser(@RequestParam String username) {
+  public ResponseEntity<Object> deleteUser(@RequestParam String username) {
     if ("admin".equals(username)) {
       return error("不能删除admin帐户");
     }
@@ -64,11 +64,35 @@ public class AuthorityController extends ControllerHelper {
   }
 
   @RequestMapping("/authority/list.do")
-  public void authorities() {}
+  public void authorities(Model model) {
+    model.addAttribute("authorities", authorityService.getAuthorityList());
+  }
 
   @RequestMapping(method = RequestMethod.POST, value = "/authority/add.do")
   public void addAuthority(@RequestParam String authority) {
     authorityService.addAuthority(authority);;
   }
+
+  @RequestMapping(method = RequestMethod.POST, value = "/authority/update.do")
+  public ResponseEntity<Object> updateAuthority(@RequestParam String pk, @RequestParam String name,
+      @RequestParam String value) {
+    if (name.equals("description")) {
+      if (value.length() > 16) {
+        return error("说明长度不能超过16");
+      }
+      authorityService.updateAuthority(pk, name, value);
+      return ok();
+    }
+
+    return illegal();
+  }
+
+  @RequestMapping(method = RequestMethod.POST, value = "/authority/delete.do")
+  public ResponseEntity<Object> deleteAuthority(@RequestParam String authority) {
+    // TODO 判断不能删除的角色
+    authorityService.deleteAuthority(authority);
+    return ok();
+  }
+
 
 }

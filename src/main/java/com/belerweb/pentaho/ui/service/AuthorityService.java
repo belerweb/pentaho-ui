@@ -60,4 +60,12 @@ public class AuthorityService {
     return users;
   }
 
+  public List<Authority> getAuthorityList() {
+    List<Authority> authorities = authorityDao.listAuthority();
+    for (Authority authority : authorities) {
+      authority.setUsers(authorityDao.listUser(authority.getAuthority()));
+    }
+    return authorities;
+  }
+
 }

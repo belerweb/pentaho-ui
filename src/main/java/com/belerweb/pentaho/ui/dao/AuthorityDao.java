@@ -1,5 +1,6 @@
 package com.belerweb.pentaho.ui.dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -84,7 +85,19 @@ public class AuthorityDao {
 
     criteria = session.createCriteria(Authority.class);
     criteria.add(Restrictions.in("authority", authorities));
-    return criteria.list();
+    return authorities.isEmpty() ? Collections.emptyList() : criteria.list();
+  }
+
+  public List<User> listUser(String authority) {
+    Session session = sessionFactory.getCurrentSession();
+    Criteria criteria = session.createCriteria(GrantedAuthority.class);
+    criteria.add(Restrictions.eq("authority", authority));
+    criteria.setProjection(Projections.property("username"));
+    List<String> usernames = criteria.list();
+
+    criteria = session.createCriteria(User.class);
+    criteria.add(Restrictions.in("username", usernames));
+    return usernames.isEmpty() ? Collections.emptyList() : criteria.list();
   }
 
   public User findUserByUsername(String username) {

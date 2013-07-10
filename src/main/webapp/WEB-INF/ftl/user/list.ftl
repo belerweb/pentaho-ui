@@ -2,6 +2,7 @@
 <div class="clearfix" id="page-content">
 	<div class="page-header position-relative">
 		<h1>权限<small><i class="icon-double-angle-right"></i> 用户管理</small></h1>
+		<button type="button" class="btn action-add">添加角色</button>
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
