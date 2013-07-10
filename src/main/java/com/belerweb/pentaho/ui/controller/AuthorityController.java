@@ -23,8 +23,12 @@ public class AuthorityController extends ControllerHelper {
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/user/add.do")
-  public void addUser(@RequestParam String username) {
+  public ResponseEntity<Object> addUser(@RequestParam String username) {
+    if (!username.matches("^[a-zA-Z][a-zA-Z0-9]{3,15}$")) {
+      return error("用户名必须以字母开头，只能包含数字和字母，长度4～16位");
+    }
     authorityService.addUser(username);
+    return ok();
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/user/update.do")

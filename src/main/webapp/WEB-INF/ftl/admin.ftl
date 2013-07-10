@@ -13,6 +13,7 @@
 		<link href="${ContextPath}/assets/css/OpenSans.css" rel="stylesheet" />
 		<link href="${ContextPath}/assets/css/ace.css" rel="stylesheet" />
 		<link href="${ContextPath}/assets/css/ace-skins.css" rel="stylesheet" />
+		<link href="${ContextPath}/assets/css/style.css" rel="stylesheet" />
 		<!--[if IE 7]>
 		  <link href="${ContextPath}/assets/css/font-awesome-ie7.css" rel="stylesheet" />
 		<![endif]-->

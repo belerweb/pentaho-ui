@@ -20,6 +20,7 @@ public class AuthorityService {
   public void addUser(String username) {
     User user = new User();
     user.setUsername(username);
+    user.setPassword("");
     authorityDao.save(user);
   }
 

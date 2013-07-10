@@ -2,7 +2,16 @@
 <div class="clearfix" id="page-content">
 	<div class="page-header position-relative">
 		<h1>权限<small><i class="icon-double-angle-right"></i> 用户管理</small></h1>
-		<button type="button" class="btn action-add">添加角色</button>
+		<button type="button" class="btn action action-add">添加用户</button>
+		<form class="form-horizontal hide">
+			<legend>添加用户</legend>
+			<div class="control-group">
+				<label class="control-label">用户名</label>
+				<div class="controls">
+					<input name="username" type="text" placeholder="用户名">
+				</div>
+			</div>
+		</form>
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
@@ -60,6 +69,35 @@ $('#page-content button.delete').on('click', function() {
 				bootbox.alert(xhr.responseText, '确定');
 			});
 		}
+	});
+});
+$('#page-content button.action-add').on('click', function() {
+	var dialog = bootbox.dialog($('<div></div>').append($(this).next().clone().removeClass('hide')).html(), [{
+			label: '取消'
+		}, {
+			label: '确定',
+			callback: function(){
+				var success = false;
+				$.ajax({
+					async: false,
+					method: 'POST',
+					url: '${ContextPath}/user/add.do',
+					data: {
+						username: $.trim($('input[name=username]', dialog).val())
+					}
+				}).done(function(){
+					success = true;
+					$('#main-content').load('${ContextPath}/user/list.do');
+				}).fail(function(xhr) {
+					bootbox.alert(xhr.responseText, '确定');
+				});
+				return success;
+			}
+		}
+	]);
+	$('form', dialog).on('submit', function(e) {
+		e.preventDefault();
+		dialog.find(".btn-primary").click();
 	});
 });
 </script>
