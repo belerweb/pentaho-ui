@@ -6,7 +6,7 @@
 		<form class="form-horizontal hide">
 			<legend>添加用户</legend>
 			<div class="control-group">
-				<label class="control-label">用户名</label>
+				<label class="control-label">用户名：</label>
 				<div class="controls">
 					<input name="username" type="text" placeholder="用户名">
 				</div>

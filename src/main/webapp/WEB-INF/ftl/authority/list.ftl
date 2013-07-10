@@ -3,6 +3,15 @@
 	<div class="page-header position-relative">
 		<h1>权限<small><i class="icon-double-angle-right"></i> 角色管理</small></h1>
 		<button type="button" class="btn action action-add">添加角色</button>
+		<form class="form-horizontal hide">
+			<legend>添加角色</legend>
+			<div class="control-group">
+				<label class="control-label">角色：</label>
+				<div class="controls">
+					<input name="authority" type="text" placeholder="角色：4～16位的字母">
+				</div>
+			</div>
+		</form>
 	</div>
 	<div class="row-fluid">
 		<div class="span12">
@@ -49,6 +58,35 @@ $('#page-content button.delete').on('click', function() {
 				bootbox.alert(xhr.responseText, '确定');
 			});
 		}
+	});
+});
+$('#page-content button.action-add').on('click', function() {
+	var dialog = bootbox.dialog($('<div></div>').append($(this).next().clone().removeClass('hide')).html(), [{
+			label: '取消'
+		}, {
+			label: '确定',
+			callback: function(){
+				var success = false;
+				$.ajax({
+					async: false,
+					method: 'POST',
+					url: '${ContextPath}/authority/add.do',
+					data: {
+						authority: $.trim($('input[name=authority]', dialog).val())
+					}
+				}).done(function(){
+					success = true;
+					$('#main-content').load('${ContextPath}/authority/list.do');
+				}).fail(function(xhr) {
+					bootbox.alert(xhr.responseText, '确定');
+				});
+				return success;
+			}
+		}
+	]);
+	$('form', dialog).on('submit', function(e) {
+		e.preventDefault();
+		dialog.find(".btn-primary").click();
 	});
 });
 </script>

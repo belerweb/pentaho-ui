@@ -44,7 +44,7 @@ public class AuthorityController extends ControllerHelper {
     }
     if (name.equals("description")) {
       if (value.length() > 16) {
-        return error("说明长度不能超过16");
+        return error("说明长度不能超过50");
       }
       authorityService.updateUser(pk, name, value);
       return ok();
@@ -73,8 +73,12 @@ public class AuthorityController extends ControllerHelper {
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/authority/add.do")
-  public void addAuthority(@RequestParam String authority) {
-    authorityService.addAuthority(authority);;
+  public ResponseEntity<Object> addAuthority(@RequestParam String authority) {
+    if (!authority.matches("^[a-zA-Z]{4,16}$")) {
+      return error("角色必须是4～16位的字母");
+    }
+    authorityService.addAuthority(authority);
+    return ok();
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/authority/update.do")
@@ -82,7 +86,7 @@ public class AuthorityController extends ControllerHelper {
       @RequestParam String value) {
     if (name.equals("description")) {
       if (value.length() > 16) {
-        return error("说明长度不能超过16");
+        return error("说明长度不能超过50");
       }
       authorityService.updateAuthority(pk, name, value);
       return ok();
