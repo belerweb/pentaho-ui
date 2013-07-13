@@ -23,4 +23,8 @@ public class OptionDao {
     return sessionFactory.getCurrentSession().createCriteria(Option.class).list();
   }
 
+  public Option get(String key) {
+    return (Option) sessionFactory.getCurrentSession().get(Option.class, key);
+  }
+
 }
