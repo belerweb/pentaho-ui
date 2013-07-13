@@ -5,3 +5,13 @@
 	right: 0;
 	top: 0;*/
 }
+
+.editable-input input[type="checkbox"],.editable-input input[type="radio"]
+	{
+	opacity: 1;
+	position: relative;
+}
+
+.editable-container.popover {
+	z-index: 9999;
+}

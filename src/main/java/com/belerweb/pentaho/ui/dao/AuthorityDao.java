@@ -31,6 +31,10 @@ public class AuthorityDao {
     sessionFactory.getCurrentSession().save(authority);
   }
 
+  public void save(GrantedAuthority grantedAuthority) {
+    sessionFactory.getCurrentSession().save(grantedAuthority);
+  }
+
   public void updateUser(String username, String prop, Object value) {
     String hql = "UPDATE User SET " + prop + " = ?  WHERE username = ?";
     Query query = sessionFactory.getCurrentSession().createQuery(hql);

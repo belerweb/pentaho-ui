@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.belerweb.pentaho.ui.bean.Authority;
+import com.belerweb.pentaho.ui.bean.GrantedAuthority;
 import com.belerweb.pentaho.ui.bean.User;
 import com.belerweb.pentaho.ui.dao.AuthorityDao;
 
@@ -29,6 +30,26 @@ public class AuthorityService {
     Authority _authority = new Authority();
     _authority.setAuthority(authority);
     authorityDao.save(_authority);
+  }
+
+  @Transactional
+  public void saveGrantedAuthority(String type, String key, String[] values) {
+    authorityDao.deleteGrantedAuthorityBy(type, key);
+    if (values != null) {
+      for (String value : values) {
+        GrantedAuthority grantedAuthority = new GrantedAuthority();
+        if (type.equals("username")) {
+          grantedAuthority.setUsername(key);
+          grantedAuthority.setAuthority(value);
+          authorityDao.save(grantedAuthority);
+        }
+        if (type.equals("authority")) {
+          grantedAuthority.setUsername(value);
+          grantedAuthority.setAuthority(key);
+          authorityDao.save(grantedAuthority);
+        }
+      }
+    }
   }
 
   @Transactional

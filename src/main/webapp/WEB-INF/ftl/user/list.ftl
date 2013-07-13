@@ -21,6 +21,7 @@
 						<th>用户名</th>
 						<th>密码</th>
 						<th>说明</th>
+						<th>角色</th>
 						<th class="center" style="width:50px;">状态</th>
 						<th class="center" style="width:50px;">操作</th>
 					</tr>
@@ -29,9 +30,35 @@
 					<#list users as user>
 					<tr>
 						<td>${user.username}</td>
-						<td><a href="#" data-name="password" data-type="password" data-pk="${user.username}" data-url="${ContextPath}/user/update.do" data-title="密码" data-value="******"></a></td>
-						<td><a href="#" data-name="description" data-type="text" data-pk="${user.username}" data-url="${ContextPath}/user/update.do" data-title="说明" data-value="${user.description!}"></a></td>
-						<td class="center"><a href="#" data-name="enabled" data-type="select" data-pk="${user.username}" data-url="${ContextPath}/user/update.do" data-title="状态" data-value="<#if user.enabled?has_content && user.enabled>1<#else>0</#if>"></a></td>
+						<td>
+							<a href="#" data-name="password" data-type="password"
+								data-pk="${user.username}"
+								data-url="${ContextPath}/user/update.do"
+								data-title="密码" data-value="******">
+							</a>
+						</td>
+						<td>
+							<a href="#" data-name="description" data-type="text"
+								data-pk="${user.username}"
+								data-url="${ContextPath}/user/update.do"
+								data-title="说明" data-value="${user.description!}">
+							</a>
+						</td>
+						<td>
+							<a href="#" data-name="authorities" data-type="checklist"
+								data-pk="${user.username}"
+								data-url="${ContextPath}/user/update.do"
+								data-title="角色"
+								data-value="<#list user.authorities as authority><#if authority_index gt 0>,</#if>${authority.authority!}</#list>">
+							</a>
+						</td>
+						<td class="center">
+							<a href="#" data-name="enabled" data-type="select"
+								data-pk="${user.username}"
+								data-url="${ContextPath}/user/update.do"
+								data-title="状态" data-value="<#if user.enabled?has_content && user.enabled>1<#else>0</#if>">
+							</a>
+						</td>
 						<td class="td-actions center">
 							<div class="btn-group">
 								<button class="btn btn-mini btn-danger delete" data-username="${user.username}">
@@ -50,6 +77,13 @@
 <script type="text/javascript">
 $('#page-content a[data-name=password]').editable();
 $('#page-content a[data-name=description]').editable();
+$('#page-content a[data-name=authorities]').editable({
+	source: [
+		<#list authorities as authority>
+		<#if authority_index gt 0>,</#if>{value: '${authority.authority}', text: '${authority.authority}<#if authority.description?has_content>(${authority.description})</#if>'}
+		</#list>
+	]
+});
 $('#page-content a[data-name=enabled]').editable({
 	source: [
 		{value: 1, text: '启用'},

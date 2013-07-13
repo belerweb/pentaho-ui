@@ -20,6 +20,7 @@ public class AuthorityController extends ControllerHelper {
   @RequestMapping("/user/list.do")
   public void users(Model model) {
     model.addAttribute("users", authorityService.getUserList());
+    model.addAttribute("authorities", authorityService.getAuthorityList());
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/user/add.do")
@@ -33,7 +34,8 @@ public class AuthorityController extends ControllerHelper {
 
   @RequestMapping(method = RequestMethod.POST, value = "/user/update.do")
   public ResponseEntity<Object> updateUser(@RequestParam String pk, @RequestParam String name,
-      @RequestParam String value) {
+      @RequestParam(required = false) String value,
+      @RequestParam(value = "value[]", required = false) String[] values) {
     if (name.equals("password")) {
       if (!value.matches("^.{6,16}$")) {
         return error("密码长度应该在6到16之间");
@@ -53,6 +55,10 @@ public class AuthorityController extends ControllerHelper {
       authorityService.updateUser(pk, name, value.equals("1"));
       return ok();
     }
+    if (name.equals("authorities")) {
+      authorityService.saveGrantedAuthority("username", pk, values);
+      return ok();
+    }
 
     return illegal();
   }
@@ -70,6 +76,7 @@ public class AuthorityController extends ControllerHelper {
   @RequestMapping("/authority/list.do")
   public void authorities(Model model) {
     model.addAttribute("authorities", authorityService.getAuthorityList());
+    model.addAttribute("users", authorityService.getUserList());
   }
 
   @RequestMapping(method = RequestMethod.POST, value = "/authority/add.do")
@@ -83,7 +90,8 @@ public class AuthorityController extends ControllerHelper {
 
   @RequestMapping(method = RequestMethod.POST, value = "/authority/update.do")
   public ResponseEntity<Object> updateAuthority(@RequestParam String pk, @RequestParam String name,
-      @RequestParam String value) {
+      @RequestParam(required = false) String value,
+      @RequestParam(value = "value[]", required = false) String[] values) {
     if (name.equals("description")) {
       if (value.length() > 16) {
         return error("说明长度不能超过50");
@@ -91,7 +99,10 @@ public class AuthorityController extends ControllerHelper {
       authorityService.updateAuthority(pk, name, value);
       return ok();
     }
-
+    if (name.equals("users")) {
+      authorityService.saveGrantedAuthority("authority", pk, values);
+      return ok();
+    }
     return illegal();
   }
 

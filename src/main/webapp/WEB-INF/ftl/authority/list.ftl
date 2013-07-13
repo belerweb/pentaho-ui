@@ -20,6 +20,7 @@
 					<tr>
 						<th>角色</th>
 						<th>说明</th>
+						<th>用户</th>
 						<th class="center" style="width:50px;">操作</th>
 					</tr>
 				</thead>
@@ -27,7 +28,21 @@
 					<#list authorities as authority>
 					<tr>
 						<td>${authority.authority}</td>
-						<td><a href="#" data-name="description" data-type="text" data-pk="${authority.authority}" data-url="${ContextPath}/authority/update.do" data-title="说明" data-value="${authority.description!}"></a></td>
+						<td>
+							<a href="#" data-name="description" data-type="text"
+								data-pk="${authority.authority}"
+								data-url="${ContextPath}/authority/update.do"
+								data-title="说明" data-value="${authority.description!}">
+							</a>
+						</td>
+						<td>
+							<a href="#" data-name="users" data-type="checklist"
+								data-pk="${authority.authority}"
+								data-url="${ContextPath}/authority/update.do"
+								data-title="用户"
+								data-value="<#list authority.users as user><#if user_index gt 0>,</#if>${user.username!}</#list>">
+							</a>
+						</td>
 						<td class="td-actions center">
 							<div class="btn-group">
 								<button class="btn btn-mini btn-danger delete" data-authority="${authority.authority}">
@@ -45,6 +60,13 @@
 
 <script type="text/javascript">
 $('#page-content a[data-name=description]').editable();
+$('#page-content a[data-name=users]').editable({
+	source: [
+		<#list users as user>
+		<#if user_index gt 0>,</#if>{value: '${user.username}', text: '${user.username}<#if user.description?has_content>(${user.description})</#if>'}
+		</#list>
+	]
+});
 $('#page-content button.delete').on('click', function() {
 	var authority = $(this).attr('data-authority');
 	var el = $(this).closest('tr');
