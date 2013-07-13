@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="${ContextPath}/assets/css/OpenSans.css" />
 		<link rel="stylesheet" href="${ContextPath}/assets/css/ace.css" />
 		<link rel="stylesheet" href="${ContextPath}/assets/css/ace-skins.css" />
+		<link href="${ContextPath}/assets/css/style.css" rel="stylesheet" />
 		<!--[if IE 7]>
 		  <link rel="stylesheet" href="${ContextPath}/assets/css/font-awesome-ie7.css" />
 		<![endif]-->
@@ -57,6 +58,8 @@
 			<div id="sidebar" class="fixed">
 				<ul class="nav nav-list">
 				</ul><!--/.nav-list-->
+				<div class="tree">
+				</div>
 
 				<div id="sidebar-collapse">
 					<i class="icon-double-angle-left"></i>
@@ -67,11 +70,17 @@
 			</div><!--/#main-content-->
 		</div><!--/.fluid-container#main-container-->
 
+		<script>
+		var ContextPath = '${ContextPath}';
+		var RepositoryView = 'tree';
+		</script>
 		<script src="${ContextPath}/assets/js/jquery.js"></script>
 		<script src="${ContextPath}/assets/js/bootstrap.js"></script>
+		<script src="${ContextPath}/assets/js/bootstrap-editable.js"></script>
 		<script src="${ContextPath}/assets/js/jquery-ui-1.10.3.custom.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.ui.touch-punch.js"></script>
 		<script src="${ContextPath}/assets/js/jquery.slimscroll.js"></script>
+		<script src="${ContextPath}/assets/js/fuelux.tree.js"></script>
 		<script src="${ContextPath}/assets/js/ace-elements.js"></script>
 		<script src="${ContextPath}/assets/js/ace.js"></script>
 		<script src="${ContextPath}/assets/js/home.js"></script>

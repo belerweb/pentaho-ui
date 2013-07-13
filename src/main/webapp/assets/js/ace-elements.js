@@ -21,20 +21,11 @@
 					var i = !!e.icon_remove;
 					var j = m.attr("multiple") && a;
 					var q = e.style == "well" ? true : false;
-					m.wrap("<div class='ace-file-input"
-							+ (q ? " ace-file-multiple" : "") + "' />");
-					m.after('<label data-title="'
-							+ e.btn_choose
-							+ '" for="'
-							+ b(this).attr("id")
-							+ '"><span data-title="'
-							+ e.no_file
-							+ '">'
-							+ (e.no_icon ? '<i class="' + e.no_icon + '"></i>'
-									: "")
-							+ "</span></label>"
-							+ (i ? '<a class="remove" href="#"><i class="'
-									+ e.icon_remove + '"></i></a>' : ""));
+					m.wrap("<div class='ace-file-input" + (q ? " ace-file-multiple" : "") + "' />");
+					m.after('<label data-title="' + e.btn_choose + '" for="' + b(this).attr("id")
+							+ '"><span data-title="' + e.no_file + '">'
+							+ (e.no_icon ? '<i class="' + e.no_icon + '"></i>' : "") + "</span></label>"
+							+ (i ? '<a class="remove" href="#"><i class="' + e.icon_remove + '"></i></a>' : ""));
 					var n = m.next();
 					if (b.browser.mozilla) {
 						n.on("click", function() {
@@ -63,84 +54,138 @@
 						}).on("dragover", function(s) {
 							s.preventDefault();
 							s.stopPropagation()
-						}).on(
-								"drop",
-								function(y) {
-									y.preventDefault();
-									y.stopPropagation();
-									var x = y.originalEvent.dataTransfer;
-									var w = x.files;
-									if (!j && w.length > 1) {
-										var v = [];
-										v.push(w[0]);
-										w = v
-									}
-									var s = true;
-									if (e.before_change) {
-										s = e.before_change.call(k, w, true)
-									}
-									if (!s || s.length == 0) {
-										return false
-									}
-									if (s instanceof Array
-											|| (f && s instanceof FileList)) {
-										w = s
-									}
-									m.data("ace_input_files", w);
-									m.data("ace_input_method", "drop");
-									var u = [];
-									for ( var t = 0; t < w.length; t++) {
-										u.push(w[t].name)
-									}
-									h(u);
-									m.triggerHandler("change", [ true ]);
-									return true
-								})
+						}).on("drop", function(y) {
+							y.preventDefault();
+							y.stopPropagation();
+							var x = y.originalEvent.dataTransfer;
+							var w = x.files;
+							if (!j && w.length > 1) {
+								var v = [];
+								v.push(w[0]);
+								w = v
+							}
+							var s = true;
+							if (e.before_change) {
+								s = e.before_change.call(k, w, true)
+							}
+							if (!s || s.length == 0) {
+								return false
+							}
+							if (s instanceof Array || (f && s instanceof FileList)) {
+								w = s
+							}
+							m.data("ace_input_files", w);
+							m.data("ace_input_method", "drop");
+							var u = [];
+							for ( var t = 0; t < w.length; t++) {
+								u.push(w[t].name)
+							}
+							h(u);
+							m.triggerHandler("change", [ true ]);
+							return true
+						})
 					}
-					m
-							.on(
-									"change.inner_call",
-									function(y, u) {
-										if (u === true) {
-											return
-										}
-										var t = true;
-										if (e.before_change) {
-											t = e.before_change.call(k,
-													this.files || this.value,
-													false)
-										}
-										if (!t || t.length == 0) {
-											if (!m.data("ace_input_files")) {
-												r()
-											}
-											return false
-										}
-										var x = (t instanceof Array || (f && t instanceof FileList)) ? t
-												: this.files;
-										m.data("ace_input_method", "select");
-										var w = [];
-										if (x) {
-											m.data("ace_input_files", x);
-											for ( var v = 0; v < x.length; v++) {
-												var s = b.trim(x[v].name);
-												if (!s) {
-													continue
-												}
-												w.push(s)
-											}
-										} else {
-											var s = b.trim(this.value);
-											if (s) {
-												w.push(s)
-											}
-										}
-										if (w.length == 0) {
-											return false
-										}
-										h(w);
-										return true
-									});
+					m.on("change.inner_call", function(y, u) {
+						if (u === true) {
+							return
+
+							
+
+														
+
+							
+
+																					
+
+							
+
+														
+
+							
+
+																												
+
+							
+
+														
+
+							
+
+																					
+
+							
+
+														
+
+							
+
+																																			
+
+							
+
+														
+
+							
+
+																					
+
+							
+
+														
+
+							
+
+																												
+
+							
+
+														
+
+							
+
+																					
+
+							
+
+														
+
+							
+
+						}
+						var t = true;
+						if (e.before_change) {
+							t = e.before_change.call(k, this.files || this.value, false)
+						}
+						if (!t || t.length == 0) {
+							if (!m.data("ace_input_files")) {
+								r()
+							}
+							return false
+						}
+						var x = (t instanceof Array || (f && t instanceof FileList)) ? t : this.files;
+						m.data("ace_input_method", "select");
+						var w = [];
+						if (x) {
+							m.data("ace_input_files", x);
+							for ( var v = 0; v < x.length; v++) {
+								var s = b.trim(x[v].name);
+								if (!s) {
+									continue
+								}
+								w.push(s)
+							}
+						} else {
+							var s = b.trim(this.value);
+							if (s) {
+								w.push(s)
+							}
+						}
+						if (w.length == 0) {
+							return false
+						}
+						h(w);
+						return true
+					});
 					var h = function(x) {
 						var w = m.data("ace_input_files");
 						if (q) {
@@ -161,12 +206,10 @@
 							if ((/\.(jpe?g|png|gif|svg|bmp|tiff?)$/i).test(t)) {
 								s = "icon-picture"
 							} else {
-								if ((/\.(mpe?g|flv|mov|avi|swf|mp4|mkv|webm|wmv|3gp)$/i)
-										.test(t)) {
+								if ((/\.(mpe?g|flv|mov|avi|swf|mp4|mkv|webm|wmv|3gp)$/i).test(t)) {
 									s = "icon-film"
 								} else {
-									if ((/\.(mp3|ogg|wav|wma|amr|aac)$/i)
-											.test(t)) {
+									if ((/\.(mp3|ogg|wav|wma|amr|aac)$/i).test(t)) {
 										s = "icon-music"
 									}
 								}
@@ -176,11 +219,8 @@
 									"data-title" : t
 								}).find('[class*="icon-"]').attr("class", s)
 							} else {
-								n.append('<span data-title="' + t
-										+ '"><i class="' + s + '"></i></span>');
-								var y = e.thumbnail && w
-										&& w[v].type.match("image")
-										&& !!window.FileReader;
+								n.append('<span data-title="' + t + '"><i class="' + s + '"></i></span>');
+								var y = e.thumbnail && w && w[v].type.match("image") && !!window.FileReader;
 								if (y) {
 									p(w[v], m)
 								}
@@ -198,10 +238,7 @@
 								w = t.width()
 							}
 						}
-						t
-								.addClass(w > 50 ? "large" : "")
-								.prepend(
-										"<img align='absmiddle' style='display:none;' />");
+						t.addClass(w > 50 ? "large" : "").prepend("<img align='absmiddle' style='display:none;' />");
 						var u = t.find("img:last").get(0);
 						var s = new FileReader();
 						s.onload = (function(y) {
@@ -216,14 +253,11 @@
 														A = C = w
 													}
 													b(y)
-															.css(
-																	{
-																		"background-image" : "url("
-																				+ B.src
-																				+ ")",
-																		width : A,
-																		height : C
-																	})
+															.css({
+																"background-image" : "url(" + B.src + ")",
+																width : A,
+																height : C
+															})
 															.attr(
 																	{
 																		src : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="
@@ -242,8 +276,7 @@
 						}).find("span:first").attr({
 							"data-title" : e.no_file,
 							"class" : ""
-						}).find('[class*="icon-"]').attr("class", e.no_icon)
-								.prev("img").remove();
+						}).find('[class*="icon-"]').attr("class", e.no_icon).prev("img").remove();
 						if (!e.no_icon) {
 							n.find('[class*="icon-"]').remove()
 						}
@@ -276,8 +309,7 @@
 						var v = u.getContext("2d");
 						v.drawImage(t, 0, 0, t.width, t.height, 0, 0, s, y);
 						return {
-							src : u.toDataURL(z == "image/jpeg" ? z
-									: "image/png", 10),
+							src : u.toDataURL(z == "image/jpeg" ? z : "image/png", 10),
 							w : s,
 							h : y
 						}
@@ -306,22 +338,14 @@
 											+ '">						<i class="'
 											+ f
 											+ '"></i>						</button>						<button type="button" class="btn spinner-down btn-mini '
-											+ g
-											+ '">						<i class="'
-											+ i
-											+ '"></i>						</button>						</div>')
-							.closest(".ace-spinner").spinner(c).wrapInner(
-									"<div class='input-append'></div>");
-					a(this).on(
-							"mousewheel DOMMouseScroll",
-							function(k) {
-								var l = k.originalEvent.detail < 0
-										|| k.originalEvent.wheelDelta > 0 ? 1
-										: -1;
-								j.spinner("step", l > 0);
-								j.spinner("triggerChangedEvent");
-								return false
-							});
+											+ g + '">						<i class="' + i + '"></i>						</button>						</div>')
+							.closest(".ace-spinner").spinner(c).wrapInner("<div class='input-append'></div>");
+					a(this).on("mousewheel DOMMouseScroll", function(k) {
+						var l = k.originalEvent.detail < 0 || k.originalEvent.wheelDelta > 0 ? 1 : -1;
+						j.spinner("step", l > 0);
+						j.spinner("triggerChangedEvent");
+						return false
+					});
 					var h = a(this);
 					j.on("changed", function() {
 						h.trigger("change")
@@ -376,40 +400,26 @@
 											h += " selected";
 											f = this.value
 										}
-										e += '<li><a class="'
-												+ h
-												+ '" href="#" style="background-color:'
-												+ this.value
-												+ ';" data-color="'
-												+ this.value + '"></a></li>'
+										e += '<li><a class="' + h + '" href="#" style="background-color:' + this.value
+												+ ';" data-color="' + this.value + '"></a></li>'
 									})
 							.end()
-							.on(
-									"change.inner_call",
-									function() {
-										a(this).next().find(".btn-colorpicker")
-												.css("background-color",
-														this.value)
-									})
+							.on("change.inner_call", function() {
+								a(this).next().find(".btn-colorpicker").css("background-color", this.value)
+							})
 							.after(
 									'<div class="dropdown dropdown-colorpicker"><a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="btn-colorpicker" style="background-color:'
 											+ f
 											+ '"></span></a><ul class="dropdown-menu'
 											+ (d.caret ? " dropdown-caret" : "")
-											+ (d.pull_right ? " pull-right"
-													: "")
-											+ '">'
-											+ e
-											+ "</ul></div>").next().find(
-									".dropdown-menu").on(
-									"click",
+											+ (d.pull_right ? " pull-right" : "")
+											+ '">' + e + "</ul></div>").next().find(".dropdown-menu").on("click",
 									function(j) {
 										var h = a(j.target);
 										if (!h.is(".colorpick-btn")) {
 											return false
 										}
-										h.closest("ul").find(".selected")
-												.removeClass("selected");
+										h.closest("ul").find(".selected").removeClass("selected");
 										h.addClass("selected");
 										var i = h.data("color");
 										g.val(i).change();
@@ -420,8 +430,9 @@
 		return this
 	}
 })(jQuery);
+
 (function(a, b) {
-	a.fn.ace_tree = function(d) {
+	a.fn.Tree = function(d) {
 		var c = {
 			"open-icon" : "icon-folder-open",
 			"close-icon" : "icon-folder-close",
@@ -430,22 +441,19 @@
 			"unselected-icon" : "tree-dot"
 		};
 		c = a.extend({}, c, d);
-		this
-				.each(function() {
-					var e = a(this);
-					e
-							.html('<div class = "tree-folder" style="display:none;">				<div class="tree-folder-header">					<i class="'
-									+ c["close-icon"]
-									+ '"></i>					<div class="tree-folder-name"></div>				</div>				<div class="tree-folder-content"></div>				<div class="tree-loader" style="display:none"></div>			</div>			<div class="tree-item" style="display:none;">				'
-									+ (c["unselected-icon"] == null ? ""
-											: '<i class="'
-													+ c["unselected-icon"]
-													+ '"></i>')
-									+ '				<div class="tree-item-name"></div>			</div>');
-					e.addClass(c.selectable == true ? "tree-selectable"
-							: "tree-unselectable");
-					e.tree(c)
-				});
+		this.each(function() {
+			var html = '<div class = "tree-folder" style="display:none;">' + '<div class="tree-folder-header">'
+					+ '<i class="' + c["close-icon"] + '"></i><div class="tree-folder-name"></div></div>'
+					+ '<div class="tree-folder-content"></div>'
+					+ '<div class="tree-loader" style="display:none"></div></div>'
+					+ '<div class="tree-item" style="display:none;">				'
+					+ (c["unselected-icon"] == null ? "" : '<i class="' + c["unselected-icon"] + '"></i>')
+					+ '<div class="tree-item-name"></div></div>';
+			var e = a(this);
+			e.html(html);
+			e.addClass(c.selectable == true ? "tree-selectable" : "tree-unselectable");
+			e.tree(c)
+		});
 		return this
 	}
 })(jQuery);

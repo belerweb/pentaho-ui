@@ -15,3 +15,14 @@
 .editable-container.popover {
 	z-index: 9999;
 }
+
+#sidebar .tree .tree-item,#sidebar .tree .tree-folder {
+	border: none;
+}
+#sidebar .tree .tree-folder .tree-folder-header, #sidebar .tree .tree-item {
+	height: auto;
+}
+
+#page-content {
+	padding-bottom: 0;
+}
