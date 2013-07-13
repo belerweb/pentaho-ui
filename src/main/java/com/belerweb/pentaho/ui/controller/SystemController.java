@@ -16,6 +16,12 @@ public class SystemController extends ControllerHelper {
   @Autowired
   private OptionService optionService;
 
+  @RequestMapping("/system/info.do")
+  public void jvm(Model model) {
+    model.addAttribute("envs", System.getenv());
+    model.addAttribute("properties", System.getProperties());
+  }
+
   @RequestMapping("/system/option.do")
   public void option(Model model) {
     model.addAttribute("option", optionService.getOptions());

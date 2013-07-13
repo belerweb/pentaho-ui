@@ -94,13 +94,20 @@
 						j_username: $('input[name=j_username]').val(),
 						j_password: $('input[name=j_password]').val(),
 						locale: 'zh_CN'
-					},
-					error: function() {
-						event.preventDefault();
-						event.stopPropagation();
-						alert('登录失败，请检查是否正确安装了程序。');
-						$('button[type=submit]').button('reset');
 					}
+				}).done(function(data, status, xhr) {
+					event.preventDefault();
+					event.stopPropagation();
+					// TODO 其他错误判断
+				}).fail(function(xhr, status, data) {
+					event.preventDefault();
+					event.stopPropagation();
+					if (xhr.status == 403) {
+						alert('权限不足，请联系管理员分配权限。');
+					} else {
+						alert('登录失败，请检查是否正确安装了程序。');
+					}
+					$('button[type=submit]').button('reset');
 				});
 			});
 		</script>

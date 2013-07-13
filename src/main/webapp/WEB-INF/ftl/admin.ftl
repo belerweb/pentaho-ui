@@ -59,6 +59,7 @@
 							<i class="icon-list-alt"></i> <span>系统管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
+							<li><a href="#" data-url="${ContextPath}/system/info.do"><i class="icon-double-angle-right"></i> 系统信息</a></li>
 							<li><a href="#" data-url="${ContextPath}/system/option.do"><i class="icon-double-angle-right"></i> 系统配置</a></li>
 						</ul>
 					</li>
