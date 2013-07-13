@@ -26,7 +26,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<a href="#" class="brand"><small>BI Server 管理平台</small></a><!--/.brand-->
+					<a href="#" class="brand"><small>${option.system_name!'BI Server'} 管理平台</small></a><!--/.brand-->
 
 					<ul class="nav ace-nav pull-right">
 						<li class="light-blue user-profile">
@@ -37,7 +37,7 @@
 							</a>
 
 							<ul class="pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer" id="user_menu">
-								<li><a href="${ContextPath}/home.do"><i class="icon-wrench"></i> BI 平台</a></li>
+								<li><a href="${ContextPath}/home.do"><i class="icon-wrench"></i> 用户平台</a></li>
 								<li class="divider"></li>
 								<li><a href="${ContextPath}/logout.do"><i class="icon-off"></i> 退出</a></li>
 							</ul>
@@ -56,9 +56,15 @@
 				<ul class="nav nav-list">
 					<li>
 						<a class="dropdown-toggle" href="#">
-							<i class="icon-list-alt"></i>
-							<span>权限管理</span>
-							<b class="arrow icon-angle-down"></b>
+							<i class="icon-list-alt"></i> <span>系统管理</span> <b class="arrow icon-angle-down"></b>
+						</a>
+						<ul class="submenu">
+							<li><a href="#" data-url="${ContextPath}/system/option.do"><i class="icon-double-angle-right"></i> 系统配置</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="dropdown-toggle" href="#">
+							<i class="icon-list-alt"></i> <span>权限管理</span> <b class="arrow icon-angle-down"></b>
 						</a>
 						<ul class="submenu">
 							<li><a href="#" data-url="${ContextPath}/user/list.do"><i class="icon-double-angle-right"></i> 用户管理</a></li>

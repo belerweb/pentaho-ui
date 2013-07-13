@@ -26,9 +26,7 @@
 			<div class="navbar-inner">
 				<div class="container-fluid">
 					<a href="#" class="brand">
-						<small>
-							BI Server
-						</small>
+						<small>${option.system_name!'BI Server'}</small>
 					</a><!--/.brand-->
 
 					<ul class="nav ace-nav pull-right">
@@ -72,7 +70,7 @@
 
 		<script>
 		var ContextPath = '${ContextPath}';
-		var RepositoryView = 'tree';
+		var RepositoryView = '${option.repository_view!'tree'}';
 		</script>
 		<script src="${ContextPath}/assets/js/jquery.js"></script>
 		<script src="${ContextPath}/assets/js/bootstrap.js"></script>

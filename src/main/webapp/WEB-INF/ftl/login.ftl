@@ -28,7 +28,7 @@
 								<div class="space-24"></div>
 								<div class="center">
 									<h1>
-										<span class="white">BI Server</span>
+										<span class="white">${option.system_name!'BI Server'}</span>
 									</h1>
 								</div>
 							</div>
@@ -96,9 +96,9 @@
 						locale: 'zh_CN'
 					},
 					error: function() {
-						event.preventDefault();
-						event.stopPropagation();
-						alert('登录失败，请检查是否正确安装了程序。');
+						//event.preventDefault();
+						//event.stopPropagation();
+						//alert('登录失败，请检查是否正确安装了程序。');
 						$('button[type=submit]').button('reset');
 					}
 				});

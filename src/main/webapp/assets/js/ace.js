@@ -1,4 +1,6 @@
 $.fn.editable.defaults.emptytext = '未设置';
+$.fn.editable.defaults.send  = 'always';
+
 jQuery(function() {
 	add_browser_detection(jQuery);
 	general_things();
