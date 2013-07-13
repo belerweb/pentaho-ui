@@ -32,11 +32,7 @@ public class OptionService {
 
   @Transactional
   public void setOption(String name, String value) {
-    Option option = optionDao.get(name);
-    if (option == null) {
-      option = new Option(name, value);
-    }
-    optionDao.save(option);
+    optionDao.save(new Option(name, value));
     cachedOptions = null;
   }
 

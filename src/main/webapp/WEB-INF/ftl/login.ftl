@@ -96,9 +96,9 @@
 						locale: 'zh_CN'
 					},
 					error: function() {
-						//event.preventDefault();
-						//event.stopPropagation();
-						//alert('登录失败，请检查是否正确安装了程序。');
+						event.preventDefault();
+						event.stopPropagation();
+						alert('登录失败，请检查是否正确安装了程序。');
 						$('button[type=submit]').button('reset');
 					}
 				});

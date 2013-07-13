@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<title>BI Server</title>
+		<title>${option.system_name!'BI Server'}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<link href="${ContextPath}/assets/css/bootstrap.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
-					<a href="#" class="brand"><small>${option.system_name!'BI Server'} 管理平台</small></a><!--/.brand-->
+					<a href="#" class="brand"><small>${option.system_name!'BI Server'}管理平台</small></a><!--/.brand-->
 
 					<ul class="nav ace-nav pull-right">
 						<li class="light-blue user-profile">

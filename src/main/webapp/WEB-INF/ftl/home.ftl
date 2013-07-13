@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-		<title>BI Server</title>
+		<title>${option.system_name!'BI Server'}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<link href="${ContextPath}/assets/css/bootstrap.css" rel="stylesheet" />

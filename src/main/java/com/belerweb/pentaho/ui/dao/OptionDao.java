@@ -16,15 +16,11 @@ public class OptionDao {
   private SessionFactory sessionFactory;
 
   public void save(Option option) {
-    sessionFactory.getCurrentSession().save(option);
+    sessionFactory.getCurrentSession().saveOrUpdate(option);
   }
 
   public List<Option> listOption() {
     return sessionFactory.getCurrentSession().createCriteria(Option.class).list();
-  }
-
-  public Option get(String key) {
-    return (Option) sessionFactory.getCurrentSession().get(Option.class, key);
   }
 
 }

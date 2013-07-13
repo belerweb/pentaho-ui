@@ -24,15 +24,15 @@ public class AuthorityDao {
   private SessionFactory sessionFactory;
 
   public void save(User user) {
-    sessionFactory.getCurrentSession().save(user);
+    sessionFactory.getCurrentSession().saveOrUpdate(user);
   }
 
   public void save(Authority authority) {
-    sessionFactory.getCurrentSession().save(authority);
+    sessionFactory.getCurrentSession().saveOrUpdate(authority);
   }
 
   public void save(GrantedAuthority grantedAuthority) {
-    sessionFactory.getCurrentSession().save(grantedAuthority);
+    sessionFactory.getCurrentSession().saveOrUpdate(grantedAuthority);
   }
 
   public void updateUser(String username, String prop, Object value) {
