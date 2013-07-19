@@ -96,8 +96,6 @@
 						locale: 'zh_CN'
 					}
 				}).done(function(data, status, xhr) {
-					event.preventDefault();
-					event.stopPropagation();
 					// TODO 其他错误判断
 				}).fail(function(xhr, status, data) {
 					event.preventDefault();
